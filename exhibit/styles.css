@@ -161,7 +161,7 @@ body {
     align-items: center;
 }
 
-.image-container, .explication-container {
+.image-container {
     flex: 1;
     height: 100%;
     display: flex;
@@ -172,87 +172,65 @@ body {
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
+/*
+.explication-container {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+*/
+
 #final-view.active .image-container {
     opacity: 1;
     transform: translateX(0);
     transition-delay: 0.3s;
 }
 
+/*
 .explication-container {
-    font-size: 1rem;
-    line-height: 1.5;
-    padding: 2rem;
-    overflow-y: auto;
-    transform: translateX(20px);
-    max-width: 600px;
-    background: rgba(255, 255, 255, 0.05);
+    margin-top: 20px;
+    background: rgba(255,255,255,0.08);
     border-radius: 8px;
-    backdrop-filter: blur(5px);
+    color: #fff;
+    padding: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    border: 1px solid rgba(255,255,255,0.1);
+    max-height: 30vh;
+    overflow-y: auto; 
+    box-sizing: border-box;
 }
+*/
 
-#explication-text {
-    white-space: pre-wrap;
-}
 
 #explication-text p {
     margin-bottom: 1rem;
 }
 
-#explication-text h1, 
-#explication-text h2, 
-#explication-text h3 {
+#explication-text h1, #explication-text h2, #explication-text h3 {
     margin: 1.5rem 0 1rem;
     color: #4a9eff;
 }
 
-#explication-text h1 {
-    font-size: 1.4rem;
-}
-
-#explication-text h2 {
-    font-size: 1.2rem;
-}
-
-#explication-text h3 {
-    font-size: 1.1rem;
-}
-
-#explication-text ul, 
-#explication-text ol {
-    margin: 1rem 0;
-    padding-left: 1.5rem;
-}
-
-#explication-text li {
-    margin-bottom: 0.5rem;
-}
-
-#explication-text blockquote {
-    border-left: 3px solid #4a9eff;
-    margin: 1rem 0;
-    padding-left: 1rem;
-    color: #ccc;
-}
-
-#explication-text code {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 0.2rem 0.4rem;
-    border-radius: 3px;
-    font-family: monospace;
-}
-
-#explication-text pre {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1rem;
-    border-radius: 5px;
-    overflow-x: auto;
-    margin: 1rem 0;
-}
+#explication-text h1 { font-size: 1.4rem; }
+#explication-text h2 { font-size: 1.2rem; }
+#explication-text h3 { font-size: 1.1rem; }
+#explication-text ul, #explication-text ol { margin: 1rem 0; padding-left: 1.5rem; }
+#explication-text li { margin-bottom: 0.5rem; }
+#explication-text blockquote { border-left: 3px solid #4a9eff; margin: 1rem 0; padding-left: 1rem; color: #ccc; }
+#explication-text code { background: rgba(255,255,255,0.1); padding: 0.2rem 0.4rem; border-radius: 3px; font-family: monospace; }
+#explication-text pre { background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 5px; overflow-x: auto; margin: 1rem 0; }
 
 #explication-text pre code {
     background: none;
     padding: 0;
 }
+
 
 #final-view.active .explication-container {
     opacity: 1;

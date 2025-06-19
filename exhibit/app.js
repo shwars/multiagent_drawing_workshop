@@ -229,13 +229,47 @@ class ExhibitApp {
 
             // Wait after dialog is complete
             await new Promise(resolve => setTimeout(resolve, this.readyTextDelay));
-            
-            // Move to next item
-            this.currentItemIndex = (this.currentItemIndex + 1) % this.items.length;
-            this.showCurrentItem();
+
+            // Show explication view (final image + explication only)
+            await this.showExplication(item);
         } catch (error) {
             console.error('Error loading dialog:', error);
         }
+    }
+
+    async showExplication(item) {
+        // Hide original-image-container and dialog-container, show explication-container in right-section
+        const rightSection = document.querySelector('.right-section');
+        const originalImageContainer = document.querySelector('.original-image-container');
+        const dialogContainer = document.querySelector('.dialog-container');
+        const explicationContainer = document.getElementById('explication-container');
+        const explicationText = document.getElementById('explication-text');
+        if (originalImageContainer) originalImageContainer.style.display = 'none';
+        if (dialogContainer) dialogContainer.style.display = 'none';
+        if (explicationContainer) explicationContainer.style.display = '';
+
+        // Load and display explication
+        if (item.files.has('explication')) {
+            try {
+                const explicationFile = item.files.get('explication');
+                const text = await explicationFile.text();
+                explicationText.innerHTML = this.formatMarkdown ? this.formatMarkdown(text) : text;
+            } catch (error) {
+                explicationText.textContent = '';
+            }
+        } else {
+            explicationText.textContent = '';
+        }
+
+        // Wait 10 seconds, then show next item
+        setTimeout(() => {
+            // Restore original-image-container and dialog-container, hide explication
+            if (originalImageContainer) originalImageContainer.style.display = '';
+            if (dialogContainer) dialogContainer.style.display = '';
+            if (explicationContainer) explicationContainer.style.display = 'none';
+            this.currentItemIndex = (this.currentItemIndex + 1) % this.items.length;
+            this.showCurrentItem();
+        }, 10000);
     }
 
     async typeText(element, text) {
