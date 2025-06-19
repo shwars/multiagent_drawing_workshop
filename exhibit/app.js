@@ -218,11 +218,8 @@ class ExhibitApp {
                 
                 lineElement.classList.add('visible');
 
-                // Only scroll if overflow appears
-                const dialogBox = this.dialogContainer.parentElement;
-                if (dialogBox.scrollHeight > dialogBox.clientHeight) {
-                    dialogBox.scrollTop = dialogBox.scrollHeight;
-                }
+                // Ensure it's scrolled to the bottom after the line is fully rendered
+                this.scrollDialogToBottom();
 
                 await new Promise(resolve => setTimeout(resolve, 500));
             }
@@ -234,6 +231,20 @@ class ExhibitApp {
             await this.showExplication(item);
         } catch (error) {
             console.error('Error loading dialog:', error);
+        }
+    }
+
+    scrollDialogToBottom() {
+        // Try multiple approaches to ensure scrolling works
+        const dialogBox = this.dialogContainer.parentElement;
+        if (dialogBox) {
+            // Force scroll to bottom
+            dialogBox.scrollTop = dialogBox.scrollHeight;
+            
+            // Also try scrolling the text container itself if needed
+            if (this.dialogContainer.scrollHeight > this.dialogContainer.clientHeight) {
+                this.dialogContainer.scrollTop = this.dialogContainer.scrollHeight;
+            }
         }
     }
 
@@ -253,7 +264,7 @@ class ExhibitApp {
             try {
                 const explicationFile = item.files.get('explication');
                 const text = await explicationFile.text();
-                explicationText.innerHTML = this.formatMarkdown ? this.formatMarkdown(text) : text;
+                explicationText.innerHTML = this.formatMarkdown(text);
             } catch (error) {
                 explicationText.textContent = '';
             }
@@ -280,14 +291,27 @@ class ExhibitApp {
             element.textContent += text[i];
             const delay = Math.random() * 5 + this.typingSpeed;
             await new Promise(resolve => setTimeout(resolve, delay));
+            // Scroll after each character is typed
+            this.scrollDialogToBottom();
         }
         
         element.classList.remove('typing');
     }
 
     formatMarkdown(text) {
+        if (!text || text.trim() === '') {
+            return '';
+        }
+        
+        // Ensure the first line is always treated as a title
+        let lines = text.trim().split('\n');
+        if (lines.length > 0 && !lines[0].trim().startsWith('#')) {
+            lines[0] = `# ${lines[0]}`;
+        }
+        const processedText = lines.join('\n');
+
         // Basic markdown formatting
-        return text
+        return processedText
             .replace(/^# (.*$)/gm, '<h1>$1</h1>')
             .replace(/^## (.*$)/gm, '<h2>$1</h2>')
             .replace(/^### (.*$)/gm, '<h3>$1</h3>')
@@ -298,7 +322,7 @@ class ExhibitApp {
             .replace(/^\> (.*$)/gm, '<blockquote>$1</blockquote>')
             .replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>')
             .replace(/`(.*?)`/g, '<code>$1</code>')
-            .replace(/^(?!<[h|u|b|p|li])(.*$)/gm, '<p>$1</p>')
+            .replace(/^(?!<[h|u|b|p|li])(?!<\/ul>)(.*$)/gm, '<p>$1</p>')
             .replace(/<p><\/p>/g, '')
             .replace(/<\/p>\s*<p>/g, '</p><p>');
     }

@@ -124,7 +124,7 @@ body {
     font-size: 1.2rem;
     line-height: 1.4;
     white-space: pre-wrap;
-    overflow-y: auto;
+    overflow-y: hidden;
     max-height: 90vh;
     padding-right: 10px;
     text-align: left;
@@ -212,12 +212,22 @@ body {
     margin-bottom: 1rem;
 }
 
-#explication-text h1, #explication-text h2, #explication-text h3 {
+#explication-text h1 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #ff9900;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 153, 0, 0.3);
+}
+
+#explication-text h2, #explication-text h3 {
     margin: 1.5rem 0 1rem;
     color: #4a9eff;
 }
 
-#explication-text h1 { font-size: 1.4rem; }
 #explication-text h2 { font-size: 1.2rem; }
 #explication-text h3 { font-size: 1.1rem; }
 #explication-text ul, #explication-text ol { margin: 1rem 0; padding-left: 1.5rem; }
@@ -368,9 +378,7 @@ body {
     border-radius: 8px;
     overflow-y: auto;
     min-height: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    scroll-behavior: smooth;
 }
 
 #dialog-text-container {
