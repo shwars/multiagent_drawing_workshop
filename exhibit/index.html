@@ -19,24 +19,27 @@
 
         <!-- Main Exhibit View -->
         <div id="exhibit-view" class="view">
-            <div class="exhibit-container">
-                <!-- Left Section: Final Image Only -->
-                <div class="left-section">
+            <div class="exhibit-horizontal-container">
+                <!-- Left: Explication -->
+                <div class="explication-panel">
+                    <div id="explication-container" class="explication-container">
+                        <div id="explication-text"></div>
+                    </div>
+                </div>
+                <!-- Center: Main Image -->
+                <div class="main-image-panel">
                     <div class="final-image-container">
                         <img id="final-image" alt="Multiagent Art Result">
                     </div>
                 </div>
-                <!-- Right Section: Original Image (top), Dialog (bottom), Explication (hidden by default) -->
-                <div class="right-section">
+                <!-- Right: Original Image + Dialog -->
+                <div class="right-panel">
                     <div class="original-image-container">
                         <img id="original-image" alt="Original YandexART Image">
                         <div id="image-meta" class="image-meta"></div>
                     </div>
                     <div class="dialog-container">
                         <div id="dialog-text-container"></div>
-                    </div>
-                    <div id="explication-container" class="explication-container" style="display:none;">
-                        <div id="explication-text"></div>
                     </div>
                 </div>
             </div>
