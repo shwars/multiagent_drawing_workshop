@@ -10,9 +10,10 @@
 
 ## Ссылка на материалы
 
-<center>
-<font size="+3" face="monospace">https://clck.ru/3MhgmR</font>
+```diff
++ https://clck.ru/3MhgmR
+```
+
 <img src="etc/qr.png"/>
-</center>
 
 > Мастер-класс подготовлен [Дмитрием Сошниковым](https://soshnikov.com/ru), автором телеграм-канала [Облачный адвокат](http://t.me/shwarsico).
