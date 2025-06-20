@@ -7,3 +7,12 @@
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shwars/multiagent_drawing_workshop/blob/main/MultiAgentDraw.ipynb)
 
 [![VK Video](https://img.shields.io/badge/Submit-Result-orange.svg?style=flat-square)](https://www.dropbox.com/request/1CWQn3SfRDzWBYFQoQeF)
+
+## Ссылка на материалы
+
+<center>
+<pre style="font-size: 24pt; font-family: Sans Serif">https://clck.ru/3MhgmR</pre>
+<img src="etc/qr.png"/>
+</center>
+
+> Мастер-класс подготовлен [Дмитрием Сошниковым](https://soshnikov.com/ru), автором телеграм-канала [Облачный адвокат](http://t.me/shwarsico).
