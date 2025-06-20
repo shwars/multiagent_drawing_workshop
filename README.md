@@ -9,11 +9,8 @@
 [![VK Video](https://img.shields.io/badge/Submit-Result-orange.svg?style=flat-square)](https://www.dropbox.com/request/1CWQn3SfRDzWBYFQoQeF)
 
 ## Ссылка на материалы
+## https://clck.ru/3MhgmR
 
-```diff
-+ https://clck.ru/3MhgmR
-```
-
-<img src="etc/qr.png"/>
+![QR Code](etc/qr.png)
 
 > Мастер-класс подготовлен [Дмитрием Сошниковым](https://soshnikov.com/ru), автором телеграм-канала [Облачный адвокат](http://t.me/shwarsico).
