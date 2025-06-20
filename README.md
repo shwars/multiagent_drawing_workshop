@@ -4,6 +4,6 @@
 
 Мы предлагаем исследовать соотношение человеческого и машинного вклада в конечное произведение, стараясь сместить всё больше акцентов на машинное творчество, чтобы в максимальной степени оправдать фразу «ИИ нарисовал картину». Для этого предлагается включить в творческую команду набор естественно-языковых агентов, которые будут самостоятельно продумывать визуальное и смысловое содержание произведений, собственно создавать визуальный образ, а также выступать в роли критиков, тем самым моделируя в глубинах искусственного разума тот же процесс, что обычно характерен для реального мира искусства. 
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/yandex-datasphere/multiagent_drawing_workshop/blob/main/MultiAgentDraw.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shwars/multiagent_drawing_workshop/blob/main/MultiAgentDraw.ipynb)
 
 [![VK Video](https://img.shields.io/badge/Submit-Result-orange.svg?style=flat-square)](https://www.dropbox.com/request/1CWQn3SfRDzWBYFQoQeF)
